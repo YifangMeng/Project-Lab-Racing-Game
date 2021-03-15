@@ -1,0 +1,15 @@
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\bin\Debug\ProjectLabApp.exe.config
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\bin\Debug\ProjectLabApp.exe
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\bin\Debug\ProjectLabApp.pdb
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.csprojAssemblyReference.cache
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\MainWindow.g.cs
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\App.g.cs
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp_MarkupCompile.cache
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp_MarkupCompile.lref
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\MainWindow.baml
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.g.resources
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.Properties.Resources.resources
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.csproj.GenerateResource.cache
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.csproj.CoreCompileInputs.cache
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.exe
+C:\Users\mac\Desktop\Project-Lab-Racing-Game\ProjectLabApp\ProjectLabApp\obj\Debug\ProjectLabApp.pdb

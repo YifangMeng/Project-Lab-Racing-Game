@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="510" Width="525">
     <Canvas x:Name="gameBoard" Focusable="True" KeyDown="gameBoard_KeyDown" KeyUp="gameBoard_KeyUp" Background="LightGreen">
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="-152" />
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="10" />
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="176" />
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="348" />
+        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="-152" Tag="sign"/>
+        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="10" Tag="sign"/>
+        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="176" Tag="sign"/>
+        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="348" Tag="sign"/>
 
 
-        <Rectangle Tag="Car1" Height="80" Width="55" Fill="Red" Canvas.Left="90" Canvas.Top="56" />
-        <Rectangle Tag="Car2" Height="80" Width="55" Fill="Blue" Canvas.Left="381" Canvas.Top="286" />
+        <Rectangle Tag="Car" Height="80" Width="55" Fill="Red" Canvas.Left="90" Canvas.Top="56" />
+        <Rectangle Tag="Car" Height="80" Width="55" Fill="Blue" Canvas.Left="381" Canvas.Top="286" />
 
 
         <Rectangle Name="player" Height="80" Width="55" Fill="Yellow" Canvas.Left="222" Canvas.Top="374" />
