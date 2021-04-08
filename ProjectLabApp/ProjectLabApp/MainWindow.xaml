@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectLabApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="510" Width="525">
+        Title="MainWindow" Height="517" Width="525">
     <Canvas x:Name="gameBoard" Focusable="True" KeyDown="gameBoard_KeyDown" KeyUp="gameBoard_KeyUp" Background="LightGreen">
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="-152" Tag="sign"/>
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="10" Tag="sign"/>
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="176" Tag="sign"/>
-        <Rectangle Height="100" Width="22" Fill="White"  Canvas.Left="237" Canvas.Top="348" Tag="sign"/>
+        <Rectangle Height="106" Width="20" Fill="White"  Canvas.Left="237" Canvas.Top="-152" Tag="sign"/>
+        <Rectangle Height="106" Width="20" Fill="White"  Canvas.Left="237" Canvas.Top="10" Tag="sign"/>
+        <Rectangle Height="106" Width="20" Fill="White"  Canvas.Left="237" Canvas.Top="176" Tag="sign"/>
+        <Rectangle Height="106" Width="20" Fill="White"  Canvas.Left="237" Canvas.Top="348" Tag="sign"/>
 
 
         <Rectangle Tag="Car" Height="80" Width="55" Fill="Red" Canvas.Left="90" Canvas.Top="56" />

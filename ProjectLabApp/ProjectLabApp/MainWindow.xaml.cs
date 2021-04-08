@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Runtime.ExceptionServices;
 
 namespace ProjectLabApp
 {
@@ -30,12 +31,14 @@ namespace ProjectLabApp
         Random rand = new Random();
         ImageBrush playerCar = new ImageBrush();
         ImageBrush star = new ImageBrush();  //image of star
+        
+        //Describe the width, height and location of a rectangle
         Rect hitLocation;
 
         int gameSpeed = 15;
         int playerSpeed = 10;
         int numOfCar;
-        int numOfStar;
+        int numOfStar=30;
         int rewardTime=200;
         double score;
 
@@ -62,6 +65,115 @@ namespace ProjectLabApp
             numOfStar = numOfStar - 1;
             scoreText.Content = "Survived " + score.ToString("#.#") + " Seconds";
 
+            hitLocation = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
+            if (moveLeft == true && Canvas.GetLeft(player) > 0)
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
+            }
+            if (moveRight == true && Canvas.GetLeft(player) + 90 < Application.Current.MainWindow.Width)
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
+            }
+
+            if (numOfStar < 1)
+            {
+                starGenerator();
+                numOfStar = rand.Next(600, 900);
+            }
+
+            foreach(var x in gameBoard.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "sign")
+                {
+                    Canvas.SetTop(x, Canvas.GetTop(x) + gameSpeed);
+                    if (Canvas.GetTop(x) > 510)
+                    {
+                        Canvas.SetTop(x, -152);
+                    }
+                }
+                if ((string)x.Tag == "Car")
+                {
+                    Canvas.SetTop(x, Canvas.GetTop(x) + gameSpeed);
+                    if (Canvas.GetTop(x) > 500)
+                    {
+                        SwitchCars(x);
+                    }
+
+                    Rect carHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (hitLocation.IntersectsWith(carHitBox) && isReward == true)
+                    {
+                        SwitchCars(x);
+                    }
+                    else if (hitLocation.IntersectsWith(carHitBox) && isReward == false)
+                    {
+                        timer.Stop();
+                        scoreText.Content += "Press Enter to Restart !";
+                        gameOver = true;
+                    }
+                }
+                if ((string)x.Tag == "star")
+                {
+                    //The unit of 5 is pixel
+                    Canvas.SetTop(x, Canvas.GetTop(x) + 5);
+                    Rect starHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (hitLocation.IntersectsWith(starHitBox))
+                    {
+                        rectangles.Add(x);
+                        isReward = true;
+                        rewardTime = 200;
+                    }
+                    if (Canvas.GetTop(x) > 400)
+                    {
+                        rectangles.Add(x);
+                    }
+                }
+            } //end of foreach loop
+
+            if (isReward == true)
+            {
+                rewardTime -= 1;
+                RewardMode();
+
+                if (rewardTime < 1)
+                {
+                    isReward = false;
+                }
+                
+            }
+            else
+            {
+                playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\playerImage.png"));
+                gameBoard.Background = Brushes.Gray;
+            }
+
+            foreach(Rectangle y in rectangles)
+            {
+                gameBoard.Children.Remove(y);
+            }
+
+            if (score >= 10 && score < 20)
+            {
+                gameSpeed = 12;
+            }
+            if (score >= 20 && score < 30)
+            {
+                gameSpeed = 14;
+            }
+            if (score >= 30 && score < 40)
+            {
+                gameSpeed = 16;
+            }
+            if (score >= 40 && score < 50)
+            {
+                gameSpeed = 18;
+            }
+            if (score >= 50 && score < 80)
+            {
+                gameSpeed = 22;
+            }
+
             //throw new NotImplementedException();
         }
 
@@ -77,7 +189,7 @@ namespace ProjectLabApp
             score = 0;
 
             scoreText.Content = "Current Score: 00";
-            playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\weak.png"));
+            playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\playerImage.png"));
             player.Fill = playerCar;
 
             star.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\star.png"));
@@ -142,9 +254,31 @@ namespace ProjectLabApp
             Canvas.SetLeft(car, rand.Next(0, 430));
 
         }
-
+        
+        //when player collects stars, the function runs
         private void RewardMode()
         {
+            rewardLevel += 0.5;
+            if (rewardLevel > 4)
+            {
+                rewardLevel = 1;
+            }
+
+            switch (rewardLevel)
+            {
+                case 1:
+                    playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\powermode1.png"));
+                    break;
+                case 2:
+                    playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\powermode2.png"));
+                    break;
+                case 3:
+                    playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\powermode3.png"));
+                    break;
+                case 4:
+                    playerCar.ImageSource = new BitmapImage(new Uri(@"C:\Users\mac\Desktop\image\powermode4.png"));
+                    break;
+            }
             gameBoard.Background = Brushes.LightCoral;
         }
 
